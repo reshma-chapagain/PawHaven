@@ -101,3 +101,29 @@
         gap: 14px;
     }
 }
+
+
+#featuredGrid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto ;
+    gap:20px;
+    padding-bottom: 10px;
+}
+
+#featuredGrid .pet-card {
+    flex-shrink: 0;
+    min-width: 180px;
+}
+
+#featuredGrid::-webkit-scrollbar {
+    height: 6px;
+}
+
+#featuredGrid::-webkit-scrollbar-track {
+    background: var(--pink-light);
+}
+#featuredGrid::-webkit-scrollbar-thumb {
+    background-color: var(--pink);
+    border-radius: 10px;
+}
