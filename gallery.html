@@ -2,63 +2,89 @@
 <html>
 <head>
     <title>Pet Gallery</title>
-    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <header>
-        <h1>🐾 Pawfect Adoption Center</h1>
+ <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">PawHaven</a>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html" class="btn-adopt">Adopt Now</a></li>
+            </ul>
+        </nav>
     </header>
-
+    
     <div class="buttons">
-        <button>All</button>
-        <button>Dogs</button>
-        <button>Cats</button>
+        <button onclick="filterPets('all')">All Pets</button>
+        <button onclick="filterPets('dog')">Dogs</button>
+        <button onclick="filterPets('cat')">Cats</button>
     </div>
 
     <div class="gallery">
 
-        <div class="card">
-            <img src="images/dog-sample.jpg" alt="Dog">
-            <h3>Bruno</h3>
-            <p>2 Years • Dog</p>
+        <div class="card" data-type="dog" onclick="alert('Name: Bruno\nAge: 2 Years\nType: Dog\nInfo: Friendly and playful dog')">
+          <img src="images/dog-sample.jpg" alt="Bruno">
+          <h3>Bruno</h3>
+          <p>2 Years • Dog</p>
         </div>
 
-        <div class="card">
-            <img src="images/dog-sample.jpg" alt="Cat">
+        <div class="card" data-type="dog" onclick="alert('Name: Chloe\nAge: 3 Years\nType: Dog\nInfo: Friendly and playful dog')">
+            <img src="images/dog2.jfif" alt="Cat">
             <h3>Chloe</h3>
-            <p>1 Year • Cat</p>
+            <p>3 Year • Cat</p>
         </div>
 
-        <div class="card">
-            <img src="images/dog-sample.jpg" alt="Dog">
+        <div class="card" data-type="dog" onclick="alert('Name: Max\nAge: 4 Years\nType: Dog\nInfo: Friendly and playful dog')">
+            <img src="images/dog3.jfif" alt="Dog">
             <h3>Max</h3>
-            <p>3 Years • Dog</p>
+            <p>4 Years • Dog</p>
         </div>
 
-        <div class="card">
-            <img src="images/dog-sample.jpg" alt="Cat">
+        <div class="card" data-type="cat" onclick="alert('Name: Lucy\nAge: 2 Years\nType: Cat\nInfo: Friendly and playful cat')">
+            <img src="images/cat2.jfif" alt="Cat">
             <h3>Lucy</h3>
             <p>2 Years • Cat</p>
         </div>
 
-        <div class="card">
-            <img src="images/dog-sample.jpg" alt="Dog">
+        <div class="card" data-type="cat" onclick="alert('Name: Charlie\nAge: 2 Years\nType: Cat\nInfo: Friendly and playful cat')">
+            <img src="images/cat3.jfif" alt="Dog">
             <h3>Charlie</h3>
-            <p>4 Years • Dog</p>
+            <p>2 Years • Dog</p>
         </div>
 
-        <div class="card">
-            <img src="images/dog-sample.jpg" alt="Cat">
+        <div class="card" data-type="cat" onclick="alert('Name: Misty\nAge: 2 Years\nType: Cat\nInfo: Friendly and playful cat')">
+            <img src="images/cat1.jfif" alt="Cat">
             <h3>Misty</h3>
-            <p>1 Year • Cat</p>
+            <p>2 Year • Cat</p>
         </div>
 
     </div>
+    <footer class="footer">
+        <a href="index.html" class="logo">PawHaven</a>
+        <p>&copy; 2023 PawHaven. All rights reserved.</p>
 
-    <footer>
-        <p>© 2026 Pawfect Adoption Center</p>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="footer-social">
+            <a href="#"> f</a>
+            <a href="#"> in</a>
+            <a href="#"> t</a>
+        </div>
     </footer>
-
+<script src="js/gallery.js"></script>
 </body>
 </html>
