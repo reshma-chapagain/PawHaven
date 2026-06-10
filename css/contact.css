@@ -8,7 +8,6 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 
-
 body{
 
 background:#fafafa;
@@ -16,9 +15,7 @@ background:#fafafa;
 }
 
 
-
-
-
+/* NAVBAR */
 
 nav{
 
@@ -36,10 +33,10 @@ border-bottom:1px solid #ddd;
 
 .logo{
 
-background:#f6b5b5;
+background:#f7c6c6;
 color:white;
-padding:18px 25px;
-border-radius:4px;
+padding:15px 25px;
+border-radius:5px;
 
 }
 
@@ -48,8 +45,8 @@ border-radius:4px;
 nav ul{
 
 display:flex;
+gap:30px;
 list-style:none;
-gap:35px;
 align-items:center;
 
 }
@@ -59,7 +56,7 @@ align-items:center;
 nav a{
 
 text-decoration:none;
-color:#222;
+color:#333;
 
 }
 
@@ -67,16 +64,17 @@ color:#222;
 
 .btn-nav{
 
-background:#f6b5b5;
+background:#f7c6c6;
 color:white;
-padding:14px 25px;
-border-radius:4px;
+padding:12px 20px;
+border-radius:5px;
 
 }
 
 
 
 
+/* MAIN */
 
 
 .container{
@@ -84,13 +82,9 @@ border-radius:4px;
 width:90%;
 margin:50px auto;
 display:flex;
-gap:50px;
-justify-content:space-between;
+gap:40px;
 
 }
-
-
-
 
 
 
@@ -98,7 +92,7 @@ justify-content:space-between;
 .form-box{
 
 width:60%;
-background:#ffe0e0;
+background:#fbe1e1;
 padding:30px;
 border-radius:8px;
 
@@ -108,18 +102,17 @@ border-radius:8px;
 
 .form-box h2{
 
-margin-bottom:25px;
+margin-bottom:20px;
 font-weight:400;
 
 }
 
 
 
-
-.row{
+form{
 
 display:flex;
-gap:20px;
+flex-direction:column;
 
 }
 
@@ -128,11 +121,10 @@ gap:20px;
 input,
 textarea{
 
-width:100%;
-padding:14px;
+padding:15px;
+margin-bottom:18px;
 border:none;
 border-radius:6px;
-margin-bottom:20px;
 
 }
 
@@ -147,18 +139,14 @@ resize:none;
 
 
 
-
 button{
 
 background:#f7b8b8;
 color:white;
 border:none;
-padding:14px 40px;
-display:block;
-margin:auto;
+padding:15px;
 cursor:pointer;
 border-radius:5px;
-font-size:16px;
 
 }
 
@@ -166,43 +154,54 @@ font-size:16px;
 
 button:hover{
 
-background:#ef9999;
+background:#ee9d9d;
 
 }
 
 
 
 
-*/
+#error{
+
+color:red;
+font-size:14px;
+
+}
+
+
+
+/* THANK YOU */
 
 
 .info-box{
 
-width:35%;
+width:45%;
+min-height:450px;
 background:#d8f0d5;
-border-radius:8px;
+border-radius:10px;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
+padding:40px;
 
 }
 
 
 
-
 .check{
 
-width:80px;
-height:80px;
-background:#27c900;
+width:100px;
+height:100px;
+background:#24c900;
 color:white;
-font-size:50px;
+font-size:65px;
 display:flex;
-align-items:center;
 justify-content:center;
-border-radius:10px;
+align-items:center;
+border-radius:15px;
+margin-bottom:30px;
 
 }
 
@@ -210,8 +209,27 @@ border-radius:10px;
 
 .info-box h1{
 
-margin:25px 0;
-font-size:42px;
+margin:25px 0 20px;
+font-size:50px;
+font-weight:400;
+
+}
+
+
+
+.info-box p{
+
+font-size:18px;
+line-height:1.6;
+
+}
+
+
+
+.info-box h1{
+
+margin:25px;
+font-size:40px;
 font-weight:400;
 
 }
@@ -220,6 +238,8 @@ font-weight:400;
 
 
 
+
+/* FOOTER */
 
 
 footer{
@@ -237,7 +257,7 @@ justify-content:space-between;
 
 .footer-logo{
 
-background:#f6b5b5;
+background:#f7c6c6;
 color:white;
 padding:12px 20px;
 
@@ -249,7 +269,7 @@ padding:12px 20px;
 .footer-links{
 
 display:flex;
-gap:25px;
+gap:20px;
 
 }
 
@@ -258,7 +278,7 @@ gap:25px;
 .footer-links a{
 
 text-decoration:none;
-color:#222;
+color:#333;
 
 }
 
@@ -272,7 +292,7 @@ width:25px;
 height:25px;
 background:#f7b8b8;
 border-radius:50%;
-margin-left:10px;
+margin:5px;
 
 }
 
@@ -281,37 +301,7 @@ margin-left:10px;
 
 
 
-
-@media(max-width:1024px){
-
-
-.container{
-
-gap:25px;
-
-}
-
-
-nav{
-
-padding:0 25px;
-
-}
-
-
-nav ul{
-
-gap:18px;
-
-}
-
-
-}
-
-
-
-
-
+/* RESPONSIVE */
 
 
 @media(max-width:768px){
@@ -319,10 +309,10 @@ gap:18px;
 
 nav{
 
-height:auto;
 flex-direction:column;
+height:auto;
 gap:20px;
-padding:25px;
+padding:20px;
 
 }
 
@@ -331,10 +321,8 @@ padding:25px;
 nav ul{
 
 flex-direction:column;
-gap:15px;
 
 }
-
 
 
 
@@ -356,17 +344,6 @@ width:100%;
 
 
 
-
-.row{
-
-flex-direction:column;
-gap:0;
-
-}
-
-
-
-
 footer{
 
 flex-direction:column;
@@ -380,16 +357,6 @@ text-align:center;
 .footer-links{
 
 flex-direction:column;
-gap:12px;
-
-}
-
-
-
-.slider span{
-
-width:20px;
-height:20px;
 
 }
 
