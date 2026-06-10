@@ -73,3 +73,8 @@ body{
         font-size:24px;
     }
 }
+/* Hide nav on mobile by default */
+.nav-links{
+    display:flex;
+    gap:20px;
+}
