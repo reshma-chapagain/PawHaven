@@ -1,5 +1,5 @@
-const DOG_API = 'https://dog.ceo/api/breeds/image/random/6';
-const CAT_API = 'https://api.thecatapi.com/v1/images/search?limit=6';
+const DOG_API = 'https://dog.ceo/api/breeds/image/random/12';
+const CAT_API = 'https://api.thecatapi.com/v1/images/search?limit=12';
 
 
 const dogNames = ['Luna', 'Charlie', 'Max', 'Bella', 'Rocky', 'Molly', 'Bruno', 'Daisy', 'Toby', 'Sadie', 'Jack', 'Lucy'];
@@ -34,9 +34,6 @@ async function fetchDogs() {
         const response = await fetch(DOG_API);
         const data = await response.json();
         return data.message; //It returns array of 12 URLs.
-
-
-        return data.message;
     }
 
     catch (error) {
@@ -53,9 +50,7 @@ async function fetchCats() {
         return data.map(cat => cat.url); //It returns array of 12 URLs.
 
 
-        return data.map(function (cat) {
-            return cat.url;
-        });
+       
     }
     catch (error) {
         console.log('Failed to fetch cat images:', error);
@@ -72,7 +67,7 @@ function showSpinner(grid) {
     grid.parentElement.appendChild(spinner);
 }
 
-function hidespinner(grid) {
+function hideSpinner(grid) {
     const spinner = document.getElementById(grid.id + '-spinner');
     if (spinner) 
         spinner.remove();
@@ -88,7 +83,7 @@ async function loadPets() {
 
     const [dogImages, catImages] = await Promise.all([fetchDogs(), fetchCats()]);
 
-    hidespinner(lovelyGrid);
+    hideSpinner(lovelyGrid);
 
     for (let i = 0; i < 6; i++) {
         if(dogImages[i]) {
