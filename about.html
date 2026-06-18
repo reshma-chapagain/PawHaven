@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PawHaven – About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/ABOUT.css"/>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Logo (PawHaven)</span>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">About</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#" class="btn">Adopt Now</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>About Us</h1>
+    <p>We are a group of passionate animal lovers working together to rescue, rehabilitate and rehome pets in need. Every adoption makes space to save another life.</p>
+    <a href="#mission" class="btn">Our Mission</a>
+  </div>
+
+  <div class="circle"></div>
+
+  <div class="stats" id="stats">
+    <div class="stat s-pink"><div class="num" data-target="1250">0+</div><div class="lbl">Pets Adopted</div></div>
+    <div class="stat s-blue"><div class="num" data-target="980">0+</div><div class="lbl">Pets Rescued</div></div>
+    <div class="stat s-green"><div class="num" data-target="560">0+</div><div class="lbl">Happy Families</div></div>
+    <div class="stat s-sand"><div class="num" data-target="120">0+</div><div class="lbl">Volunteers</div></div>
+  </div>
+</section>
+
+<section class="team">
+  <h2>Meet Our Team</h2>
+  <div class="team-grid">
+    <div class="card"><div class="av av-pink"></div><div class="info"><div class="name">Reshma</div><div class="role">Leader</div></div></div>
+    <div class="card"><div class="av av-blue"></div><div class="info"><div class="name">Arya</div><div class="role">Developer</div></div></div>
+    <div class="card"><div class="av av-green"></div><div class="info"><div class="name">Saksham</div><div class="role">Developer</div></div></div>
+    <div class="card"><div class="av av-sand"></div><div class="info"><div class="name">Anmol</div><div class="role">Developer</div></div></div>
+  </div>
+</section>
+
+<section id="mission">
+  <p class="eye">What drives us</p>
+  <h2>Every pet deserves a loving home</h2>
+  <p>At PawHaven, we believe every animal is worth fighting for. Our mission is to bridge homeless pets with caring families — through rescue, rehabilitation, and community education. We don't just find homes; we find the <em>right</em> homes.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="icon">🐾</div><div class="ptitle">Rescue</div><div class="pdesc">We respond to animals in danger and bring them to safety.</div></div>
+    <div class="pillar"><div class="icon">💊</div><div class="ptitle">Rehabilitate</div><div class="pdesc">Medical care and emotional healing before adoption.</div></div>
+    <div class="pillar"><div class="icon">🏡</div><div class="ptitle">Rehome</div><div class="pdesc">Matching every pet with a family built to love them.</div></div>
+    <div class="pillar"><div class="icon">📣</div><div class="ptitle">Educate</div><div class="pdesc">Spreading awareness so fewer pets need rescuing.</div></div>
+  </div>
+</section>
+
+<script>
+  let done = false;
+  new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting || done) return;
+    done = true;
+    document.querySelectorAll('.num[data-target]').forEach((el, i) => {
+      const target = +el.dataset.target;
+      setTimeout(() => {
+        const t0 = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - t0) / 1400, 1);
+          el.textContent = Math.round((1 - Math.pow(1 - p, 4)) * target).toLocaleString() + '+';
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      }, i * 120);
+    });
+  }, { threshold: 0.3 }).observe(document.getElementById('stats'));
+
+  document.querySelector('a[href="#mission"]').onclick = e => {
+    e.preventDefault();
+    document.getElementById('mission').scrollIntoView({ behavior: 'smooth' });
+  };
+</script>
+
+</body>
+</html>
