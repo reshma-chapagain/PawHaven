@@ -1,0 +1,306 @@
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+<<<<<<< Updated upstream
+
+    /*Box Model*/
+    padding: 60px 40px;
+    margin: 0 auto;
+    width:100%;
+    max-width:1200px;
+    box-sizing:border-box;
+}
+
+.home-section-text {
+
+    /*Box Model*/
+    width:100%;
+    margin-right:40px;
+=======
+    padding: 60px 40px;
+}
+
+.home-section-text {
+>>>>>>> Stashed changes
+    max-width: 480px;
+}
+
+.home-section-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+<<<<<<< Updated upstream
+    /*Box Model*/
+=======
+>>>>>>> Stashed changes
+    margin-bottom: 20px;
+}
+
+.home-section-text h1 span {
+    color: var(--pink);
+}
+
+.home-section-text p {
+    font-size: 1rem;
+    color: #444;
+<<<<<<< Updated upstream
+    /*box model*/
+=======
+>>>>>>> Stashed changes
+    margin-bottom: 28px;
+    max-width: 380px;
+
+}
+
+.home-section-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+<<<<<<< Updated upstream
+
+    /*Box Model*/
+    margin-top: 4px;
+=======
+>>>>>>> Stashed changes
+}
+
+
+.home-section-image {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--pink-light);
+    flex-shrink: 0;
+<<<<<<< Updated upstream
+    border: 4px solid black;
+=======
+>>>>>>> Stashed changes
+}
+
+.home-section-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+<<<<<<< Updated upstream
+/* Pet-Sections */
+.featured,
+.lovely {
+    padding: 40px 40px 60px 40px;
+    margin: 0 auto;
+    width:100%;
+    max-width:1200px;
+    box-sizing: border-box;
+=======
+/* Sections */
+.featured,
+.lovely {
+    padding: 40px 40px 60px;
+>>>>>>> Stashed changes
+}
+
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+<<<<<<< Updated upstream
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--pink);
+=======
+>>>>>>> Stashed changes
+}
+
+.pets-grid {
+    display: grid;
+<<<<<<< Updated upstream
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+=======
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+>>>>>>> Stashed changes
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .home-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+<<<<<<< Updated upstream
+        margin: 0 auto;
+    }
+
+     .home-section-text {
+        width: 100%;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 32px;
+=======
+>>>>>>> Stashed changes
+    }
+
+    .home-section-text h1 {
+        font-size: 2.4rem;
+<<<<<<< Updated upstream
+        margin-bottom: 16px;
+    }
+
+     .home-section-text p {
+        max-width: 100%;
+        margin-bottom: 24px;
+=======
+>>>>>>> Stashed changes
+    }
+
+    .home-section-btns {
+        justify-content: center;
+    }
+
+    .home-section-image {
+        width: 260px;
+        height: 260px;
+    }
+
+    .featured,
+    .lovely {
+<<<<<<< Updated upstream
+        padding: 30px 20px 40px 20px;
+    }
+
+    .pets-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    #featuredGrid .pet-card {
+        width: 160px;
+    }
+}
+
+
+/*Featured Row*/
+=======
+        padding: 30px 20px 40px;
+    }
+
+    .pets-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 14px;
+    }
+}
+
+
+>>>>>>> Stashed changes
+#featuredGrid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto ;
+    gap:20px;
+<<<<<<< Updated upstream
+    padding-bottom: 12px;
+=======
+    padding-bottom: 10px;
+>>>>>>> Stashed changes
+}
+
+#featuredGrid .pet-card {
+    flex-shrink: 0;
+    min-width: 180px;
+}
+
+#featuredGrid::-webkit-scrollbar {
+    height: 6px;
+}
+
+#featuredGrid::-webkit-scrollbar-track {
+    background: var(--pink-light);
+}
+#featuredGrid::-webkit-scrollbar-thumb {
+    background-color: var(--pink);
+    border-radius: 10px;
+<<<<<<< Updated upstream
+}
+/*Mobile */
+@media (max-width: 480px) {
+    .home-section {
+        /* Box model: tight padding on small screens */
+        padding: 28px 16px;
+    }
+ 
+    .home-section-text {
+        margin-bottom: 24px;
+    }
+ 
+    .home-section-text h1 {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+ 
+    .home-section-text p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+ 
+    .home-section-image {
+        /* Box model: smaller circle on mobile */
+        width: 200px;
+        height: 200px;
+        border-width: 3px;
+    }
+ 
+    .featured,
+    .lovely {
+        /* Box model: minimal padding on mobile */
+        padding: 24px 16px 32px 16px;
+    }
+ 
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+        padding-bottom: 6px;
+    }
+ 
+    .pets-grid {
+        /* 1 column on mobile */
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+ 
+    #featuredGrid .pet-card {
+        width: 150px;
+    }
+}
+ 
+
+
+
+/* Spinner */
+.loading-spinner {
+    display : flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.spinner {
+    border : 4px solid var(--pink-light);
+    border-top : 4px solid var(--pink);
+    border-radius : 50%;
+    width : 40px;
+    height : 40px;
+    animation : spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+=======
+>>>>>>> Stashed changes
+}
