@@ -7,9 +7,16 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>PawHaven Adoption</title>
 
+
 <link rel="stylesheet" href="css/contact.css">
+
+
+<!-- jQuery UI CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
 </head>
 
@@ -19,25 +26,25 @@
 
 <nav>
 
+
 <div class="logo">
 PawHaven
 </div>
 
 
+
 <ul>
 
-<li><a href="home.html">Home</a></li>
+<li><a href="index.html">Home</a></li>
+
 <li><a href="about.html">About</a></li>
+
 <li><a href="gallery.html">Gallery</a></li>
+
 <li><a href="contact.html">Contact</a></li>
 
-<li>
-<a class="btn-nav" href="contact.html">
-Adopt Now
-</a>
-</li>
-
 </ul>
+
 
 </nav>
 
@@ -49,75 +56,153 @@ Adopt Now
 
 
 
+<!-- LEFT FORM -->
+
 <div class="form-box" id="formBox">
 
 
 <h2>Adoption Registration</h2>
 
 
+
 <form id="adoptForm">
 
 
-<input type="text" id="name" placeholder="Full Name">
+
+<label>Full Name</label>
+
+<input type="text" id="name">
+
+<span class="error" id="nameError"></span>
 
 
-<input type="email" id="email" placeholder="Email Address">
 
 
-<input type="text" id="phone" placeholder="Phone Number">
+
+<label>Email</label>
+
+<input type="email" id="email">
+
+<span class="error" id="emailError"></span>
 
 
-<input type="text" id="address" placeholder="Address">
 
 
-<input type="text" id="pet" placeholder="Pet Preference">
+
+<label>Phone Number</label>
+
+<input type="text" id="phone">
+
+<span class="error" id="phoneError"></span>
 
 
-<textarea id="message" placeholder="Message"></textarea>
 
 
-<p id="error"></p>
+
+<label>Address</label>
+
+<input type="text" id="address">
+
+<span class="error" id="addressError"></span>
+
+
+
+
+
+<label>Pet Preference</label>
+
+<input type="text" id="pet">
+
+<span class="error" id="petError"></span>
+
+
+
+
+
+<label>Adoption Appointment Date</label>
+
+<input type="text" id="date" placeholder="Select Date">
+
+
+<span class="error" id="dateError"></span>
+
+
+
+
+
+<label>Message</label>
+
+<textarea id="message"></textarea>
+
+<span class="error" id="messageError"></span>
+
+
+
 
 
 <button type="submit">
+
 Submit Application
+
 </button>
+
 
 
 </form>
 
 
+
 </div>
 
 
 
+
+
+
+
+
+
+<!-- THANK YOU PANEL -->
 
 
 <div class="info-box" id="thankBox">
 
 
+
 <div class="check">
+
 &check;
+
 </div>
 
 
 <h1>
+
 Thank You
+
 </h1>
 
 
 <p>
-Your application has been<br>
-submitted successfully.
+
+Your adoption application<br>
+
+has been submitted successfully.
+
 </p>
 
 
+
+</div>
+
+
+
+
+
+
 </div>
 
 
-
-
-</div>
 
 
 
@@ -129,46 +214,40 @@ submitted successfully.
 
 
 <div class="footer-logo">
+
 PawHaven
+
 </div>
 
 
 
 <p>
-&copy; 2026 PawHaven Pvt. Ltd. All rights reserved
+
+&copy;2026 PawHaven Pvt. Ltd.
+
 </p>
-
-
-
-<div class="footer-links">
-
-<a href="home.html">Home</a>
-
-<a href="about.html">About</a>
-
-<a href="gallery.html">Gallery</a>
-
-<a href="contact.html">Contact</a>
-
-</div>
-
-
-
-<div class="slider">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
 
 
 </footer>
 
 
 
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+
+
 <script src="js/contact.js"></script>
 
 
+
 </body>
+
 </html>

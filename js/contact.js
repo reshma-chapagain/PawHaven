@@ -1,55 +1,145 @@
-let form = document.getElementById("adoptForm");
-
-let formBox = document.getElementById("formBox");
-
-let thankBox = document.getElementById("thankBox");
-
-let error = document.getElementById("error");
+$(document).ready(function(){
 
 
 
-form.addEventListener("submit", function(e){
+// jQuery Datepicker
+
+$("#date").datepicker({
+
+    minDate:0,
+
+    dateFormat:"dd-mm-yy"
+
+});
+
+
+
+
+
+$("#adoptForm").submit(function(e){
 
 
 e.preventDefault();
 
 
 
-let phone = document.getElementById("phone").value;
-
-let email = document.getElementById("email").value;
+$(".error").text("");
 
 
 
-if(phone.length != 10 || isNaN(phone)){
+let valid=true;
 
 
-error.innerHTML = "Phone number must be exactly 10 digits";
+let phone=$("#phone").val();
 
-return;
+let email=$("#email").val();
+
+
+
+
+
+if($("#name").val()==""){
+
+$("#nameError").text("Enter name");
+
+valid=false;
+
+}
+
+
+
+if(email=="" || !email.includes("@")){
+
+$("#emailError").text("Enter valid email");
+
+valid=false;
+
+}
+
+
+
+if(phone.length!=10 || isNaN(phone)){
+
+
+$("#phoneError").text("Phone must be 10 digits");
+
+valid=false;
 
 
 }
 
 
 
-if(!email.includes("@")){
+if($("#address").val()==""){
+
+$("#addressError").text("Enter address");
+
+valid=false;
+
+}
 
 
-error.innerHTML = "Enter a valid email";
+
+if($("#pet").val()==""){
+
+$("#petError").text("Enter pet preference");
+
+valid=false;
+
+}
 
 
-return;
 
+if($("#date").val()==""){
+
+$("#dateError").text("Select date");
+
+valid=false;
+
+}
+
+
+
+if($("#message").val()==""){
+
+$("#messageError").text("Enter message");
+
+valid=false;
 
 }
 
 
 
 
-formBox.style.display="none";
 
-thankBox.style.display="flex";
+if(valid){
+
+
+
+$("#formBox").fadeOut(500);
+
+
+
+setTimeout(function(){
+
+
+$("#thankBox").addClass("show");
+
+
+},500);
+
+
+
+
+$("#adoptForm")[0].reset();
+
+
+}
+
+
+
+});
+
 
 
 });
