@@ -1,104 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PawHaven - About Us</title>
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PawHaven – About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/ABOUT.css"/>
 </head>
 <body>
 
-  <table width="100%" border="0">
-    <tr>
-      <td><button style="background:#f5a99a;color:white;border:none;padding:8px 18px;">Logo (PawHaven)</button></td>
-      <td align="right">
-        <a href="#">Home</a> &nbsp;&nbsp;
-        <a href="#" style="color:#f5a99a;">About</a> &nbsp;&nbsp;
-        <a href="#">Gallery</a> &nbsp;&nbsp;
-        <a href="#">Contact</a> &nbsp;&nbsp;
-        <button style="background:#f5a99a;color:white;border:none;padding:8px 18px;">Adopt Now</button>
-      </td>
-    </tr>
-  </table>
+<nav>
+  <span class="logo">Logo (PawHaven)</span>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">About</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#" class="btn">Adopt Now</a></li>
+  </ul>
+</nav>
 
-  <hr>
+<section class="hero">
+  <div>
+    <h1>About Us</h1>
+    <p>We are a group of passionate animal lovers working together to rescue, rehabilitate and rehome pets in need. Every adoption makes space to save another life.</p>
+    <a href="#mission" class="btn">Our Mission</a>
+  </div>
 
-  <table width="100%" border="0" cellpadding="20">
-    <tr valign="top">
+  <div class="circle"></div>
 
-      <td width="33%">
-        <h1>About Us</h1>
-        <p>We are a group of passionate animal lovers working together to rescue, rehabilitate and rehome pets in need. Every adoption makes space to save another life.</p>
-        <button style="background:#fdd5cc;color:#f5a99a;border:none;padding:10px 24px;">Our Mission</button>
-      </td>
+  <div class="stats" id="stats">
+    <div class="stat s-pink"><div class="num" data-target="1250">0+</div><div class="lbl">Pets Adopted</div></div>
+    <div class="stat s-blue"><div class="num" data-target="980">0+</div><div class="lbl">Pets Rescued</div></div>
+    <div class="stat s-green"><div class="num" data-target="560">0+</div><div class="lbl">Happy Families</div></div>
+    <div class="stat s-sand"><div class="num" data-target="120">0+</div><div class="lbl">Volunteers</div></div>
+  </div>
+</section>
 
-      <td width="33%" align="center">
-        <img src="" alt="Pet Image" width="280" height="280"
-          style="border-radius:50%;background:#fdd5cc;display:block;">
-      </td>
+<section class="team">
+  <h2>Meet Our Team</h2>
+  <div class="team-grid">
+    <div class="card"><div class="av av-pink"></div><div class="info"><div class="name">Reshma</div><div class="role">Leader</div></div></div>
+    <div class="card"><div class="av av-blue"></div><div class="info"><div class="name">Arya</div><div class="role">Developer</div></div></div>
+    <div class="card"><div class="av av-green"></div><div class="info"><div class="name">Saksham</div><div class="role">Developer</div></div></div>
+    <div class="card"><div class="av av-sand"></div><div class="info"><div class="name">Anmol</div><div class="role">Developer</div></div></div>
+  </div>
+</section>
 
-      <td width="33%">
-        <table width="100%" cellpadding="15">
-          <tr>
-            <td bgcolor="#fdd5cc" align="center">
-              <h2 style="color:#f5a99a;margin:0;">1250+</h2>
-              <small>Pets Adopted</small>
-            </td>
-            <td bgcolor="#c5d5ee" align="center">
-              <h2 style="color:#7a9fd4;margin:0;">980+</h2>
-              <small>Pets Rescued</small>
-            </td>
-          </tr>
-          <tr>
-            <td bgcolor="#c5e0c5" align="center">
-              <h2 style="color:#7ab87a;margin:0;">560+</h2>
-              <small>Happy Families</small>
-            </td>
-            <td bgcolor="#f5e2c8" align="center">
-              <h2 style="color:#d4a96a;margin:0;">120+</h2>
-              <small>Volunteers</small>
-            </td>
-          </tr>
-        </table>
-      </td>
+<section id="mission">
+  <p class="eye">What drives us</p>
+  <h2>Every pet deserves a loving home</h2>
+  <p>At PawHaven, we believe every animal is worth fighting for. Our mission is to bridge homeless pets with caring families — through rescue, rehabilitation, and community education. We don't just find homes; we find the <em>right</em> homes.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="icon">🐾</div><div class="ptitle">Rescue</div><div class="pdesc">We respond to animals in danger and bring them to safety.</div></div>
+    <div class="pillar"><div class="icon">💊</div><div class="ptitle">Rehabilitate</div><div class="pdesc">Medical care and emotional healing before adoption.</div></div>
+    <div class="pillar"><div class="icon">🏡</div><div class="ptitle">Rehome</div><div class="pdesc">Matching every pet with a family built to love them.</div></div>
+    <div class="pillar"><div class="icon">📣</div><div class="ptitle">Educate</div><div class="pdesc">Spreading awareness so fewer pets need rescuing.</div></div>
+  </div>
+</section>
 
-    </tr>
-  </table>
+<script>
+  let done = false;
+  new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting || done) return;
+    done = true;
+    document.querySelectorAll('.num[data-target]').forEach((el, i) => {
+      const target = +el.dataset.target;
+      setTimeout(() => {
+        const t0 = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - t0) / 1400, 1);
+          el.textContent = Math.round((1 - Math.pow(1 - p, 4)) * target).toLocaleString() + '+';
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      }, i * 120);
+    });
+  }, { threshold: 0.3 }).observe(document.getElementById('stats'));
 
-  <hr>
-
-  <h2 align="center">Meet Our Team</h2>
-  <table align="center" border="0" cellpadding="10">
-    <tr valign="top">
-
-      <td>
-        <table border="1" cellpadding="0" cellspacing="0" width="160">
-          <tr><td bgcolor="#fdd5cc" height="120" align="center">👩</td></tr>
-          <tr><td padding="10"><b>Reshma</b><br><small>Leader</small></td></tr>
-        </table>
-      </td>
-
-      <td>
-        <table border="1" cellpadding="0" cellspacing="0" width="160">
-          <tr><td bgcolor="#c5d5ee" height="120" align="center">👩</td></tr>
-          <tr><td><b>Arya</b><br><small>Developer</small></td></tr>
-        </table>
-      </td>
-
-      <td>
-        <table border="1" cellpadding="0" cellspacing="0" width="160">
-          <tr><td bgcolor="#c5e0c5" height="120" align="center">👨</td></tr>
-          <tr><td><b>Saksham</b><br><small>Developer</small></td></tr>
-        </table>
-      </td>
-
-      <td>
-        <table border="1" cellpadding="0" cellspacing="0" width="160">
-          <tr><td bgcolor="#f5e2c8" height="120" align="center">👨</td></tr>
-          <tr><td><b>Anmol</b><br><small>Developer</small></td></tr>
-        </table>
-      </td>
-
-    </tr>
-  </table>
+  document.querySelector('a[href="#mission"]').onclick = e => {
+    e.preventDefault();
+    document.getElementById('mission').scrollIntoView({ behavior: 'smooth' });
+  };
+</script>
 
 </body>
 </html>
