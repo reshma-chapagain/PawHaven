@@ -1,2 +1,2 @@
 # PawHaven
-A responsive frontend pet adoption website
+A responsive frontend pet adoption website.
