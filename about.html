@@ -5,20 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PawHaven – About Us</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="css/nav-footer.css"/>
   <link rel="stylesheet" href="css/ABOUT.css"/>
 </head>
 <body>
 
+<!-- ============ SHARED NAV (same markup on every page) ============ -->
 <nav>
-  <span class="logo">Logo (PawHaven)</span>
+  <a href="index.html" class="logo">PawHaven</a>
+
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#" class="active">About</a></li>
-    <li><a href="#">Gallery</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#" class="btn">Adopt Now</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="adopt.html" class="btn">Adopt Now</a></li>
   </ul>
 </nav>
+
+
 
 <section class="hero">
   <div>
@@ -27,7 +37,7 @@
     <a href="#mission" class="btn">Our Mission</a>
   </div>
 
-  <div class="circle"></div>
+  <img class="hero-photo" src="images/dog.jpg" alt="Rescued dog smiling at the camera"/>
 
   <div class="stats" id="stats">
     <div class="stat s-pink"><div class="num" data-target="1250">0+</div><div class="lbl">Pets Adopted</div></div>
@@ -40,10 +50,10 @@
 <section class="team">
   <h2>Meet Our Team</h2>
   <div class="team-grid">
-    <div class="card"><div class="av av-pink"></div><div class="info"><div class="name">Reshma</div><div class="role">Leader</div></div></div>
-    <div class="card"><div class="av av-blue"></div><div class="info"><div class="name">Arya</div><div class="role">Developer</div></div></div>
-    <div class="card"><div class="av av-green"></div><div class="info"><div class="name">Saksham</div><div class="role">Developer</div></div></div>
-    <div class="card"><div class="av av-sand"></div><div class="info"><div class="name">Anmol</div><div class="role">Developer</div></div></div>
+    <div class="card"><img class="av" src="images/profile2.jpg" alt="Reshma"/><div class="info"><div class="name">Reshma</div><div class="role">Leader</div></div></div>
+    <div class="card"><img class="av" src="images/profile2.jpg" alt="Arya"/><div class="info"><div class="name">Arya</div><div class="role">Developer</div></div></div>
+    <div class="card"><img class="av" src="images/PROFILE.jpg" alt="Saksham"/><div class="info"><div class="name">Saksham</div><div class="role">Developer</div></div></div>
+    <div class="card"><img class="av" src="images/PROFILE.jpg" alt="Anmol"/><div class="info"><div class="name">Anmol</div><div class="role">Developer</div></div></div>
   </div>
 </section>
 
@@ -52,36 +62,56 @@
   <h2>Every pet deserves a loving home</h2>
   <p>At PawHaven, we believe every animal is worth fighting for. Our mission is to bridge homeless pets with caring families — through rescue, rehabilitation, and community education. We don't just find homes; we find the <em>right</em> homes.</p>
   <div class="pillars">
-    <div class="pillar"><div class="icon">🐾</div><div class="ptitle">Rescue</div><div class="pdesc">We respond to animals in danger and bring them to safety.</div></div>
-    <div class="pillar"><div class="icon">💊</div><div class="ptitle">Rehabilitate</div><div class="pdesc">Medical care and emotional healing before adoption.</div></div>
-    <div class="pillar"><div class="icon">🏡</div><div class="ptitle">Rehome</div><div class="pdesc">Matching every pet with a family built to love them.</div></div>
-    <div class="pillar"><div class="icon">📣</div><div class="ptitle">Educate</div><div class="pdesc">Spreading awareness so fewer pets need rescuing.</div></div>
+    <div class="pillar"><div class="icon"><i class="fa-solid fa-paw"></i></div><div class="ptitle">Rescue</div><div class="pdesc">We respond to animals in danger and bring them to safety.</div></div>
+    <div class="pillar"><div class="icon"><i class="fa-solid fa-kit-medical"></i></div><div class="ptitle">Rehabilitate</div><div class="pdesc">Medical care and emotional healing before adoption.</div></div>
+    <div class="pillar"><div class="icon"><i class="fa-solid fa-house"></i></div><div class="ptitle">Rehome</div><div class="pdesc">Matching every pet with a family built to love them.</div></div>
+    <div class="pillar"><div class="icon"><i class="fa-solid fa-bullhorn"></i></div><div class="ptitle">Educate</div><div class="pdesc">Spreading awareness so fewer pets need rescuing.</div></div>
   </div>
 </section>
 
-<script>
-  let done = false;
-  new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting || done) return;
-    done = true;
-    document.querySelectorAll('.num[data-target]').forEach((el, i) => {
-      const target = +el.dataset.target;
-      setTimeout(() => {
-        const t0 = performance.now();
-        (function tick(now) {
-          const p = Math.min((now - t0) / 1400, 1);
-          el.textContent = Math.round((1 - Math.pow(1 - p, 4)) * target).toLocaleString() + '+';
-          if (p < 1) requestAnimationFrame(tick);
-        })(t0);
-      }, i * 120);
-    });
-  }, { threshold: 0.3 }).observe(document.getElementById('stats'));
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h4>PawHaven</h4>
+      <p>Rescuing, rehabilitating, and rehoming pets — one loving family at a time.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Involved</h4>
+      <ul class="footer-links">
+        <li><a href="adopt.html">Adopt</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="donate.html">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@pawhaven.org">hello@pawhaven.org</a></li>
+        <li><a href="tel:+9771234567">+977 1 234 5678</a></li>
+        <li>Kathmandu, Nepal</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> PawHaven. All rights reserved.
+  </div>
+</footer>
 
-  document.querySelector('a[href="#mission"]').onclick = e => {
-    e.preventDefault();
-    document.getElementById('mission').scrollIntoView({ behavior: 'smooth' });
-  };
-</script>
-
+<script src="js/about.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
