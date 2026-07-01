@@ -90,7 +90,7 @@ img {
   background: var(--pink-dark);
 }
 .navbar .logo img {
-  height: 44px;
+  height: 99px;
   width: auto;
   display: block;
 }
@@ -254,7 +254,7 @@ img {
 }
 
 .footer .logo img{
-  height: 44px;
+  height: 90px;
   width: auto;
   display: block;
 }
