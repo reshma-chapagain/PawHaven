@@ -83,3 +83,49 @@ setInterval(()=>{
     currentSlide++;
     showSlide(currentSlide);
 },3000);
+
+
+$(document).ready(function(){
+
+    let current = 0;
+    let images = $("#petSlider img");
+
+    // check images exist
+    if(images.length === 0){
+        console.log("No images found");
+        return;
+    }
+
+
+    // hide all images first
+    images.hide();
+
+    // show first image
+    images.eq(current).show();
+
+
+    // automatic slider
+    setInterval(function(){
+
+        // hide current image
+        images.eq(current).fadeOut(500);
+
+
+        // next image
+        current++;
+
+
+        // go back to first image
+        if(current >= images.length){
+            current = 0;
+        }
+
+
+        // show next image
+        images.eq(current).fadeIn(500);
+
+
+    },3000);
+
+
+});
