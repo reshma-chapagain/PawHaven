@@ -2,10 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
-  initMissionScroll();
-  initMobileNav();
 });
-
 
 function initStatsCounter() {
   const statsEl = document.getElementById('stats');
@@ -29,38 +26,4 @@ function initStatsCounter() {
       }, i * 120);
     });
   }, { threshold: 0.3 }).observe(statsEl);
-}
-
-
-function initMissionScroll() {
-  const link = document.querySelector('a[href="#mission"]');
-  const target = document.getElementById('mission');
-  if (!link || !target) return;
-
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
-
-function initMobileNav() {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav-links');
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.classList.toggle('open', isOpen);
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
 }
