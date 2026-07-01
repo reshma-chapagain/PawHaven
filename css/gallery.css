@@ -357,3 +357,19 @@
 .next:hover{
     background:#ff8f8f;
 }
+
+
+#petSlider {
+    width: 80%;
+    height: 350px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#petSlider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
