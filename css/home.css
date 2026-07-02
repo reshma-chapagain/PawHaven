@@ -156,6 +156,8 @@
 #featuredGrid .pet-card {
     flex-shrink: 0;
     min-width: 180px;
+    animation: none;
+    opacity: 1;
 }
 
 #featuredGrid::-webkit-scrollbar {
