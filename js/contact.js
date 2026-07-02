@@ -1,12 +1,6 @@
 $(document).ready(function () {
 
-    // Mobile Menu
 
-    $(".menu-toggle").click(function () {
-
-        $("#navLinks").slideToggle();
-
-    });
 
 
 
