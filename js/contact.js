@@ -1,145 +1,165 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
+    // Mobile Menu
 
+    $(".menu-toggle").click(function () {
 
-// jQuery Datepicker
+        $("#navLinks").slideToggle();
 
-$("#date").datepicker({
+    });
 
-    minDate:0,
 
-    dateFormat:"dd-mm-yy"
 
-});
+    // jQuery Datepicker
 
+    $("#date").datepicker({
 
+        minDate: 0,
 
+        dateFormat: "dd-mm-yy"
 
+    });
 
-$("#adoptForm").submit(function(e){
 
 
-e.preventDefault();
+    // Form Validation
 
+    $("#adoptForm").submit(function (e) {
 
+        e.preventDefault();
 
-$(".error").text("");
+        $(".error").text("");
 
+        let valid = true;
 
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+        let phone = $("#phone").val().trim();
+        let address = $("#address").val().trim();
+        let pet = $("#pet").val().trim();
+        let date = $("#date").val().trim();
+        let message = $("#message").val().trim();
 
-let valid=true;
 
 
-let phone=$("#phone").val();
+        // Name
 
-let email=$("#email").val();
+        if (name == "") {
 
+            $("#nameError").text("Please enter your full name");
 
+            valid = false;
 
+        }
 
 
-if($("#name").val()==""){
 
-$("#nameError").text("Enter name");
+        // Email
 
-valid=false;
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-}
+        if (email == "") {
 
+            $("#emailError").text("Please enter email");
 
+            valid = false;
 
-if(email=="" || !email.includes("@")){
+        }
 
-$("#emailError").text("Enter valid email");
+        else if (!emailPattern.test(email)) {
 
-valid=false;
+            $("#emailError").text("Invalid email format");
 
-}
+            valid = false;
 
+        }
 
 
-if(phone.length!=10 || isNaN(phone)){
 
+        // Phone
 
-$("#phoneError").text("Phone must be 10 digits");
+        let phonePattern = /^[0-9]{10}$/;
 
-valid=false;
+        if (phone == "") {
 
+            $("#phoneError").text("Please enter phone number");
 
-}
+            valid = false;
 
+        }
 
+        else if (!phonePattern.test(phone)) {
 
-if($("#address").val()==""){
+            $("#phoneError").text("Phone number must contain exactly 10 digits");
 
-$("#addressError").text("Enter address");
+            valid = false;
 
-valid=false;
+        }
 
-}
 
 
+        // Address
 
-if($("#pet").val()==""){
+        if (address == "") {
 
-$("#petError").text("Enter pet preference");
+            $("#addressError").text("Please enter address");
 
-valid=false;
+            valid = false;
 
-}
+        }
 
 
 
-if($("#date").val()==""){
+        // Pet Preference
 
-$("#dateError").text("Select date");
+        if (pet == "") {
 
-valid=false;
+            $("#petError").text("Please enter pet preference");
 
-}
+            valid = false;
 
+        }
 
 
-if($("#message").val()==""){
 
-$("#messageError").text("Enter message");
+        // Date
 
-valid=false;
+        if (date == "") {
 
-}
+            $("#dateError").text("Please select appointment date");
 
+            valid = false;
 
+        }
 
 
 
-if(valid){
+        // Message
 
+        if (message == "") {
 
+            $("#messageError").text("Please enter message");
 
-$("#formBox").fadeOut(500);
+            valid = false;
 
+        }
 
 
-setTimeout(function(){
 
+        // Success
 
-$("#thankBox").addClass("show");
+        if (valid) {
 
+            $("#formBox").fadeOut(500, function () {
 
-},500);
+                $("#thankBox").fadeIn(600).addClass("show");
 
+            });
 
+            $("#adoptForm")[0].reset();
 
+        }
 
-$("#adoptForm")[0].reset();
-
-
-}
-
-
-
-});
-
-
+    });
 
 });
