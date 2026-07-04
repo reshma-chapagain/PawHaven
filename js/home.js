@@ -6,22 +6,23 @@ const dogNames = ['Luna', 'Charlie', 'Max', 'Bella', 'Rocky', 'Molly', 'Bruno', 
 const catNames = ['Oliver', 'Coco', 'Nalu', 'Milo', 'Butter', 'Oreo', 'Simba', 'Lily', 'Leo', 'Mittens', 'Charlie', 'Sophie'];
 const ages = ['2yrs', '1.2yrs', '6months', '3yrs', '1yr', '10mnths'];
 
-const Fallback_Dogs = [
-    'https://images.dog.ceo/breeds/cotondetulear/100_2013.jpg',
-    'https://images.dog.ceo/breeds/terrier-cairn/n02096177_1123.jpg',
-    'https://images.dog.ceo/breeds/dingo/n02115641_1674.jpg',
-    'https://images.dog.ceo/breeds/schnauzer-giant/n02097130_2574.jpg',
-    'https://images.dog.ceo/breeds/rajapalayam-indian/Rajapalayam-dog.jpg',
-    'https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_1157.jpg'
+const fallback_Dogs = [
+    "images/fallback/fall1.jpeg",
+    "images/fallback/fall2.jpeg",
+    "images/fallback/fall3.jpeg",
+    "images/fallback/fall4.jpeg",
+    "images/fallback/fall5.jpeg",
+    "images/fallback/fall6.jpeg",
+    "images/fallback/fall7.jpeg"
 ];
 
-const Fallback_Cat = [ 
-    'https://cdn2.thecatapi.com/images/181.jpg',
-    'https://cdn2.thecatapi.com/images/1u3.jpg',
-    'https://cdn2.thecatapi.com/images/9ao.jpg',
-    'https://cdn2.thecatapi.com/images/b4j.jpg',
-    'https://cdn2.thecatapi.com/images/c47.jpg',
-    'https://cdn2.thecatapi.com/images/cib.jpg'
+const fallback_Cats = [
+    "images/fallback/fallc1.jpeg",
+    "images/fallback/fallc2.jpeg",
+    "images/fallback/fallc3.jpeg",
+    "images/fallback/fallc4.jpeg",
+    "images/fallback/fallc5.jpeg",
+    "images/fallback/fallc6.jpeg"
 ];
 
 function getRandom(arr) {
@@ -55,7 +56,7 @@ async function fetchDogs() {
 
     catch (error) {
         console.log('Failed to fetch dog images:', error);
-        return Fallback_Dogs;
+        return fallback_Dogs;
     }
 
 }
@@ -71,7 +72,7 @@ async function fetchCats() {
     }
     catch (error) {
         console.log('Failed to fetch cat images:', error);
-        return Fallback_Cat;
+        return fallback_Cats;
     }
 }
 function showSpinner(grid) {
