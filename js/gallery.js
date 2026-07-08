@@ -35,11 +35,23 @@ function filterPets(type, btn) {
 
 /* ── DETAIL PANEL ───────────────────────────── */
 document.querySelectorAll(".card").forEach(function (card) {
+
     card.addEventListener("click", function (e) {
-        // Don't toggle if clicking the Adopt Now link
+
+        // Don't close/open when clicking the Adopt button
         if (e.target.classList.contains("adopt-btn")) return;
+
+        // Close every pet information first
+        document.querySelectorAll(".pet-info").forEach(function(info){
+            if(info !== card.querySelector(".pet-info")){
+                info.classList.remove("show");
+            }
+        });
+
+        // Toggle only the clicked card
         card.querySelector(".pet-info").classList.toggle("show");
     });
+
 });
 
 let currentSlide = 0;

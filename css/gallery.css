@@ -373,3 +373,11 @@
     object-fit: cover;
     border-radius: 15px;
 }
+.pet-info{
+    display:none;
+}
+
+.card.active .pet-info{
+    display:block;
+}
+
