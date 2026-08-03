@@ -1,26 +1,67 @@
-/* ── SLIDER ─────────────────────────────────── */
+/* ══════════════════════════════════════════════
+   JQUERY UI FEATURED PETS SLIDER
+══════════════════════════════════════════════ */
 $(function () {
     var totalSlides = $(".slider-card").length;
 
-    $("#slide-0").addClass("active");
+    if (totalSlides > 0) {
+        $("#slide-0").addClass("active");
 
-    $("#featured-slider").slider({
-        min: 0,
-        max: totalSlides - 1,
-        step: 1,
-        value: 0,
-        slide: function (event, ui) {
-            $(".slider-card").removeClass("active");
-            $("#slide-" + ui.value).addClass("active");
-        }
-    });
+        $("#featured-slider").slider({
+            min: 0,
+            max: totalSlides - 1,
+            step: 1,
+            value: 0,
+            slide: function (event, ui) {
+                $(".slider-card").removeClass("active");
+                $("#slide-" + ui.value).addClass("active");
+            }
+        });
+    }
 });
 
-/* ── FILTER ─────────────────────────────────── */
+/* ══════════════════════════════════════════════
+   IMAGE SLIDER (top banner with prev/next)
+══════════════════════════════════════════════ */
+$(document).ready(function () {
+
+    let images = $("#petSlider img");
+
+    if (images.length === 0) {
+        console.log("No images found in #petSlider");
+        return;
+    }
+
+    let current = 0;
+
+    // Hide all, show first
+    images.hide();
+    images.eq(current).show();
+
+    // Auto-advance every 3 seconds
+    setInterval(function () {
+        images.eq(current).fadeOut(500);
+        current = (current + 1) % images.length;
+        images.eq(current).fadeIn(500);
+    }, 3000);
+
+    // Prev / Next buttons
+    window.changeSlide = function (n) {
+        images.eq(current).fadeOut(500);
+        current = (current + n + images.length) % images.length;
+        images.eq(current).fadeIn(500);
+    };
+
+});
+
+/* ══════════════════════════════════════════════
+   FILTER BUTTONS
+══════════════════════════════════════════════ */
 function filterPets(type, btn) {
     document.querySelectorAll(".filter-btn").forEach(function (b) {
         b.classList.remove("active");
     });
+
     if (btn) btn.classList.add("active");
 
     document.querySelectorAll(".card").forEach(function (card) {
@@ -33,99 +74,27 @@ function filterPets(type, btn) {
     });
 }
 
-/* ── DETAIL PANEL ───────────────────────────── */
+/* ══════════════════════════════════════════════
+   DETAIL PANEL — click to open, one at a time
+══════════════════════════════════════════════ */
 document.querySelectorAll(".card").forEach(function (card) {
     card.addEventListener("click", function (e) {
-        // Don't toggle if clicking the Adopt Now link
+
+        // Don't toggle when clicking Adopt button or close button
         if (e.target.classList.contains("adopt-btn")) return;
-        card.querySelector(".pet-info").classList.toggle("show");
-    });
-});
-
-let currentSlide = 0;
-
-let slides = document.querySelectorAll(".slide");
-
-
-function showSlide(index){
-
-    slides.forEach(slide=>{
-        slide.classList.remove("active");
-    });
-
-
-    if(index >= slides.length){
-        currentSlide = 0;
-    }
-
-    if(index < 0){
-        currentSlide = slides.length-1;
-    }
-
-
-    slides[currentSlide].classList.add("active");
-
-}
-
-
-
-function changeSlide(n){
-
-    currentSlide += n;
-
-    showSlide(currentSlide);
-
-}
-
-
-
-setInterval(()=>{
-    currentSlide++;
-    showSlide(currentSlide);
-},3000);
-
-
-$(document).ready(function(){
-
-    let current = 0;
-    let images = $("#petSlider img");
-
-    // check images exist
-    if(images.length === 0){
-        console.log("No images found");
-        return;
-    }
-
-
-    // hide all images first
-    images.hide();
-
-    // show first image
-    images.eq(current).show();
-
-
-    // automatic slider
-    setInterval(function(){
-
-        // hide current image
-        images.eq(current).fadeOut(500);
-
-
-        // next image
-        current++;
-
-
-        // go back to first image
-        if(current >= images.length){
-            current = 0;
+        if (e.target.classList.contains("close-btn")) {
+            card.querySelector(".pet-info").classList.remove("show");
+            return;
         }
 
+        // Close all other open panels first
+        document.querySelectorAll(".pet-info").forEach(function (info) {
+            if (info !== card.querySelector(".pet-info")) {
+                info.classList.remove("show");
+            }
+        });
 
-        // show next image
-        images.eq(current).fadeIn(500);
-
-
-    },3000);
-
-
+        // Toggle this card's panel
+        card.querySelector(".pet-info").classList.toggle("show");
+    });
 });
