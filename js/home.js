@@ -6,35 +6,20 @@ const dogNames = ['Luna', 'Charlie', 'Max', 'Bella', 'Rocky', 'Molly', 'Bruno', 
 const catNames = ['Oliver', 'Coco', 'Nalu', 'Milo', 'Butter', 'Oreo', 'Simba', 'Lily', 'Leo', 'Mittens', 'Charlie', 'Sophie'];
 const ages = ['2yrs', '1.2yrs', '6months', '3yrs', '1yr', '10mnths'];
 
-const fallback_Dogs = [
-    "images/fallback/fall1.jpeg",
-    "images/fallback/fall2.jpeg",
-    "images/fallback/fall3.jpeg",
-    "images/fallback/fall4.jpeg",
-    "images/fallback/fall5.jpeg",
-    "images/fallback/fall6.jpeg",
-    "images/fallback/fall7.jpeg"
-];
-
-const fallback_Cats = [
-    "images/fallback/fallc1.jpeg",
-    "images/fallback/fallc2.jpeg",
-    "images/fallback/fallc3.jpeg",
-    "images/fallback/fallc4.jpeg",
-    "images/fallback/fallc5.jpeg",
-    "images/fallback/fallc6.jpeg"
-];
-
 function getRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-
 function createCard(imgUrl, name, age) {
     const card = document.createElement('div');
     card.className = 'pet-card';
+
+    const imgContent = imgUrl 
+        ? `<img src="${imgUrl}" alt="${name}"/>`
+        : `<div class="img-error">Failed to fetch image</div>`;
+
     card.innerHTML = `
-        <img src = "${imgUrl}" alt = "${name}"/>
+        ${imgContent}
         <div class = "card-body">
         <div class = "card-name">${name}</div>
         <div class = "card-info">${age}</div>
@@ -43,7 +28,6 @@ function createCard(imgUrl, name, age) {
     `;
 
     return card;
-
 }
 
 
@@ -56,7 +40,7 @@ async function fetchDogs() {
 
     catch (error) {
         console.log('Failed to fetch dog images:', error);
-        return fallback_Dogs;
+        return new Array(12).fill(null);
     }
 
 }
@@ -72,7 +56,7 @@ async function fetchCats() {
     }
     catch (error) {
         console.log('Failed to fetch cat images:', error);
-        return fallback_Cats;
+        return new Array(12).fill(null);
     }
 }
 function showSpinner(grid) {
@@ -104,23 +88,23 @@ async function loadPets() {
     hideSpinner(lovelyGrid);
 
     for (let i = 0; i < 6; i++) {
-        if(dogImages[i]) {
-            featuredGrid.appendChild(createCard(dogImages[i], getRandom(dogNames), getRandom(ages)));
-        }
+        
+          featuredGrid.appendChild(createCard(dogImages[i], getRandom(dogNames), getRandom(ages)));
+        
     }
     // For lovely Pets
     const lovelyPets = [];
     for (let i = 6; i < 12; i++) {
-       if(dogImages[i]) {
-        lovelyPets.push({ url : dogImages[i], name : getRandom(dogNames) });
-       }
+       
+        lovelyPets.push({ url : dogImages[i] || null, name : getRandom(dogNames) });
+       
     }
 
 
     for (let i = 0; i < 12; i++) {
-        if(catImages[i]) {
-            lovelyPets.push({ url : catImages[i], name : getRandom(catNames) });
-        }
+        
+            lovelyPets.push({ url : catImages[i] || null, name : getRandom(catNames) });
+        
     }
 
     for (let i = lovelyPets.length - 1; i > 0; i--) {
