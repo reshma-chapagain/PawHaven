@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Bruno",
+    "type": "dog",
+    "age": "2 years",
+    "image": "images/Dog1.jpeg",
+    "info": "Bruno is friendly and playful. He loves to go for walks."
+  },
+  {
+    "id": 2,
+    "name": "Chloe",
+    "type": "dog",
+    "age": "3 years",
+    "image": "images/Dog2.jpeg",
+    "info": "Chloe is energetic. She loves to play fetch in the park."
+  },
+  {
+    "id": 3,
+    "name": "Ruby",
+    "type": "dog",
+    "age": "3 years",
+    "image": "images/Dog3.jpeg",
+    "info": "Ruby is cheerful and playful. She loves outdoor activities and spending time with people."
+  },
+  {
+    "id": 4,
+    "name": "Max",
+    "type": "dog",
+    "age": "4 years",
+    "image": "images/Dog4.jpeg",
+    "info": "Max is calm and gentle. He is great with children and enjoys relaxing with his family."
+  },
+  {
+    "id": 5,
+    "name": "Teddy",
+    "type": "dog",
+    "age": "3 years",
+    "image": "images/Dog5.jpeg",
+    "info": "Teddy is fun-loving and energetic. He enjoys playing with toys and running around."
+  },
+  {
+    "id": 6,
+    "name": "Lala",
+    "type": "dog",
+    "age": "3 years",
+    "image": "images/Dog6.jpeg",
+    "info": "Lala is sweet and active. She loves playing outdoors and getting attention from people."
+  },
+  {
+    "id": 7,
+    "name": "Lucy",
+    "type": "cat",
+    "age": "2 years",
+    "image": "images/Cat1.jpeg",
+    "info": "Lucy is curious and gentle. She loves exploring and sitting near sunny windows."
+  },
+  {
+    "id": 8,
+    "name": "Charlie",
+    "type": "cat",
+    "age": "2 years",
+    "image": "images/Cat2.jpeg",
+    "info": "Charlie is playful and friendly. He enjoys toys, treats, and spending time with people."
+  },
+  {
+    "id": 9,
+    "name": "Coco",
+    "type": "cat",
+    "age": "2 years",
+    "image": "images/Cat3.jpeg",
+    "info": "Coco is sweet and playful. She loves chasing toys and relaxing in cozy places."
+  },
+  {
+    "id": 10,
+    "name": "Leo",
+    "type": "cat",
+    "age": "2 years",
+    "image": "images/Cat4.jpeg",
+    "info": "Leo is curious and adventurous. He enjoys exploring new places."
+  },
+  {
+    "id": 11,
+    "name": "Lily",
+    "type": "cat",
+    "age": "2 years",
+    "image": "images/Cat5.jpeg",
+    "info": "Lily is quiet and affectionate. She loves cuddling and taking naps."
+  },
+  {
+    "id": 12,
+    "name": "Mochi",
+    "type": "cat",
+    "age": "2 years",
+    "image": "images/Cat6.jpeg",
+    "info": "Mochi is playful and sweet. She enjoys toys and getting attention."
+  }
+]
