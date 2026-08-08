@@ -1,4 +1,48 @@
 /* ══════════════════════════════════════════════
+   LOAD PETS FROM JSON AND RENDER CARDS
+══════════════════════════════════════════════ */
+async function loadPets() {
+    const grid = document.getElementById('galleryGrid');
+
+    try {
+        const response = await fetch('pets.json');
+        const pets = await response.json();
+
+        pets.forEach(pet => grid.appendChild(createCard(pet)));
+    } catch (error) {
+        console.log('Failed to load pets.json:', error);
+        grid.innerHTML = `<p class="img-error">Failed to load pets. Please try again later.</p>`;
+    }
+
+    attachCardClickHandlers();
+}
+
+function createCard(pet) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.type = pet.type;
+
+    card.innerHTML = `
+        <div class="card-img-wrap">
+            <img src="${pet.image}" alt="${pet.name}">
+        </div>
+        <h3>${pet.name}</h3>
+        <p class="card-meta">${pet.name} is ${pet.age} old and a ${pet.type}</p>
+        <div class="pet-info">
+            <ul>
+                <li><strong>Name</strong> is ${pet.name}</li>
+                <li><strong>Age</strong> is ${pet.age}</li>
+                <li><strong>Type</strong> is ${pet.type}</li>
+                <li><strong>Info</strong>. ${pet.info}</li>
+            </ul>
+            <a href="contact.html" class="adopt-btn">Adopt ${pet.name} now</a>
+        </div>
+    `;
+
+    return card;
+}
+
+/* ══════════════════════════════════════════════
    JQUERY UI FEATURED PETS SLIDER
 ══════════════════════════════════════════════ */
 $(function () {
@@ -22,36 +66,34 @@ $(function () {
 
 /* ══════════════════════════════════════════════
    IMAGE SLIDER (top banner with prev/next)
+   + kicks off the JSON pet load
 ══════════════════════════════════════════════ */
 $(document).ready(function () {
 
     let images = $("#petSlider img");
 
-    if (images.length === 0) {
+    if (images.length > 0) {
+        let current = 0;
+
+        images.hide();
+        images.eq(current).show();
+
+        setInterval(function () {
+            images.eq(current).fadeOut(500);
+            current = (current + 1) % images.length;
+            images.eq(current).fadeIn(500);
+        }, 3000);
+
+        window.changeSlide = function (n) {
+            images.eq(current).fadeOut(500);
+            current = (current + n + images.length) % images.length;
+            images.eq(current).fadeIn(500);
+        };
+    } else {
         console.log("No images found in #petSlider");
-        return;
     }
 
-    let current = 0;
-
-    // Hide all, show first
-    images.hide();
-    images.eq(current).show();
-
-    // Auto-advance every 3 seconds
-    setInterval(function () {
-        images.eq(current).fadeOut(500);
-        current = (current + 1) % images.length;
-        images.eq(current).fadeIn(500);
-    }, 3000);
-
-    // Prev / Next buttons
-    window.changeSlide = function (n) {
-        images.eq(current).fadeOut(500);
-        current = (current + n + images.length) % images.length;
-        images.eq(current).fadeIn(500);
-    };
-
+    loadPets();
 });
 
 /* ══════════════════════════════════════════════
@@ -76,25 +118,21 @@ function filterPets(type, btn) {
 
 /* ══════════════════════════════════════════════
    DETAIL PANEL — click to open, one at a time
+   (attached after cards are rendered from JSON)
 ══════════════════════════════════════════════ */
-document.querySelectorAll(".card").forEach(function (card) {
-    card.addEventListener("click", function (e) {
+function attachCardClickHandlers() {
+    document.querySelectorAll(".card").forEach(function (card) {
+        card.addEventListener("click", function (e) {
 
-        // Don't toggle when clicking Adopt button or close button
-        if (e.target.classList.contains("adopt-btn")) return;
-        if (e.target.classList.contains("close-btn")) {
-            card.querySelector(".pet-info").classList.remove("show");
-            return;
-        }
+            if (e.target.classList.contains("adopt-btn")) return;
 
-        // Close all other open panels first
-        document.querySelectorAll(".pet-info").forEach(function (info) {
-            if (info !== card.querySelector(".pet-info")) {
-                info.classList.remove("show");
-            }
+            document.querySelectorAll(".pet-info").forEach(function (info) {
+                if (info !== card.querySelector(".pet-info")) {
+                    info.classList.remove("show");
+                }
+            });
+
+            card.querySelector(".pet-info").classList.toggle("show");
         });
-
-        // Toggle this card's panel
-        card.querySelector(".pet-info").classList.toggle("show");
     });
-});
+}
